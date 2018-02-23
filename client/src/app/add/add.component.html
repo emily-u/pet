@@ -1,0 +1,25 @@
+<h1>Pet Shelter</h1>
+<h4>Know of a pet needing a home?</h4>
+
+<p *ngIf = "error !== null" style="color: red;">{{error}}</p>
+<form (submit)="addSubmit()">
+<label for="">Pet name: </label>
+<input type="text" [(ngModel)]="newPet.name" name="petName"><br>
+
+<label for="">Pet type: </label>
+<input type="text" [(ngModel)]="newPet.type" name="petType"><br>
+
+<label for="">Description: </label>
+<input type="text" [(ngModel)]="newPet.description" name="petDescription"><br>
+
+<label for="">Skills: </label><br>
+<label for="">Skill 1: </label>
+<input type="text" [(ngModel)]="newPet.skillone" name="skillonw"><br>
+<label for="">Skill 2: </label>
+<input type="text" [(ngModel)]="newPet.skilltwo" name="skilltwo"><br>
+<label for="">Skill 3: </label>
+<input type="text" [(ngModel)]="newPet.skillthree" name="skillthree"><br>
+
+<button>Add pet</button>
+<button><a href="/">Cancel</a></button>
+</form>

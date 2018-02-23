@@ -1,0 +1,36 @@
+<h1>Pet Shelter</h1>
+<a href="/">Home</a>
+
+<table>
+  <tr>
+    <th>Details about {{thePet.name}}</th>
+    <th></th> 
+  </tr>
+  <tr>
+    <td>Pet type: </td>
+    <td>{{thePet.type}}</td>
+  </tr>
+  <tr>
+    <td>Description: </td>
+    <td>{{thePet.description}}</td>
+  </tr>
+  <tr>
+    <td>Skills: </td>
+    <td>{{thePet.skillone}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{thePet.skilltwo}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{thePet.skillthree}}</td>
+  </tr>
+  <tr>
+    <td>Likes: </td>
+    <td>{{thePet.like}}</td>
+  </tr>
+  <button (click) = "vote(thePet._id)">Like this pet</button>
+  <button (click) = "deleteButtonClicked(thePet._id)">Adopt this pet!</button>
+
+</table>

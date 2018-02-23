@@ -1,0 +1,25 @@
+<h1>Pet Shelter</h1>
+<h3>Edit this pet</h3> 
+
+<form (submit)="editSubmit()">
+  <label for="">Pet name: </label>
+  <input type="text" [(ngModel)]="editPet.name" name="petName"><br>
+  
+  <label for="">Pet type: </label>
+  <input type="text" [(ngModel)]="editPet.type" name="petType"><br>
+  
+  <label for="">Description: </label>
+  <input type="text" [(ngModel)]="editPet.description" name="petDescription"><br>
+  
+  <label for="">Skills: </label><br>
+  <label for="">Skill 1: </label>
+  <input type="text" [(ngModel)]="editPet.skillone" name="skillonw"><br>
+  <label for="">Skill 2: </label>
+  <input type="text" [(ngModel)]="editPet.skilltwo" name="skilltwo"><br>
+  <label for="">Skill 3: </label>
+  <input type="text" [(ngModel)]="editPet.skillthree" name="skillthree"><br>
+  
+  <button>Edit pet</button>
+  <button><a href="/">Cancel</a></button>
+  </form>
+  
