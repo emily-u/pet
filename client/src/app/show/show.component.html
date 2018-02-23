@@ -30,7 +30,7 @@
     <td>Likes: </td>
     <td>{{thePet.like}}</td>
   </tr>
-  <button (click) = "vote(thePet._id)">Like this pet</button>
+  <button [disabled] = "addquote.invalid" (click) = "vote(thePet._id)">Like this pet</button>
   <button (click) = "deleteButtonClicked(thePet._id)">Adopt this pet!</button>
 
 </table>

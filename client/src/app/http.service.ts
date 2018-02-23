@@ -5,7 +5,6 @@ export class HttpService {
     constructor(private _http: HttpClient){}
 
     addPet(newPet, callback){
-        // console.log("7777", newPet);
         this._http.post("/addpets", newPet).subscribe(
             (res) => {
                 callback(res);

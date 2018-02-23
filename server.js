@@ -24,7 +24,7 @@ mongoose.Promise = global.Promise;
 
 let PetSchema = new mongoose.Schema({
 
-    name:{ type:String, unique:[true,'This name has already registered'], required:[true,'Pet name is required'],minlength:[3,'At least 3 characters for pet name']},
+    name:{ type:String, required:[true,'Pet name is required'],minlength:[3,'At least 3 characters for pet name'], unique:[true,'This name has already registered']},
 
     type:{ type:String, required:[true,'Pet type is required'], minlength:[3,'At least 3 characters for pet type']},
 
@@ -73,17 +73,40 @@ app.post('/addpets', function(req, res){
 
 
 // //update
+// app.put('/pets/:id', function(req, res){
+//     console.log(req.body);
+//     Pet.findOneAndUpdate({_id: req.params.id},
+//     {$set: {name: req.body.name, type: req.body.type, description: req.body.description, skillone: req.body.skillone, skilltwo: req.body.skilltwo, skillthree: req.body.skillthree}}, function(err){
+//         if(err){
+//             console.log('Error during updates');
+//             res.json({message: "Error", error: err});
+//         }else{
+//             console.log('Successfully to update the author');
+//             res.json("updated pet");
+//         }
+//     })
+// })
+
 app.put('/pets/:id', function(req, res){
     console.log(req.body);
-    Pet.findOneAndUpdate({_id: req.params.id},
-    {$set: {name: req.body.name, type: req.body.type, description: req.body.description, skillone: req.body.skillone, skilltwo: req.body.skilltwo, skillthree: req.body.skillthree}}, function(err){
-        if(err){
-            console.log('Error during updates');
-            res.json({message: "Error", error: err});
-        }else{
-            console.log('Successfully to update the author');
-            res.json("updated pet");
-        }
+    Pet.findOne({_id: req.params.id}, function(err, pet) {
+        console.log(pet);
+        pet.name = req.body.name;
+        pet.type = req.body.type;
+        pet.description = req.body.description;
+        pet.skillone = req.body.skillone;
+        pet.skilltwo = req.body.skilltwo;
+        pet.skillthree = req.body.skillthree;
+        pet.save(function(err) {
+            if(err) {
+                console.log("err from edit pet: ",err);
+                res.json(err);
+            }
+            else {
+                res.json("success edit pet");
+            }
+        })
+
     })
 })
 
