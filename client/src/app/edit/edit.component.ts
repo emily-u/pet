@@ -40,9 +40,13 @@ export class EditComponent implements OnInit {
       
       this._httpService.editPet(params.get("id"), this.editPet, (resFromService) => {
         console.log(resFromService);
-        if (resFromService.name == "ValidationError") {
-          this.error = resFromService.message;
-        }else{
+        if (resFromService.message == "Error") {
+          this.error = resFromService.error.message;
+        }
+        // (resFromService.name == "ValidationError") {
+        //   this.error = resFromService.message;
+        // }
+        else{
           this._router.navigate(["/"]);
         }
         

@@ -24,11 +24,11 @@ mongoose.Promise = global.Promise;
 
 let PetSchema = new mongoose.Schema({
 
-    name:{ type:String, unique:[true,'This name has already registered'], required:[true,'Pet name is required.'],minlength:[3,'At least 3 characters for pet name']},
+    name:{ type:String, unique:[true,'This name has already registered'], required:[true,'Pet name is required'],minlength:[3,'At least 3 characters for pet name']},
 
-    type:{ type:String, required:[true,'Pet type is required.'], minlength:[3,'At least 3 characters for pet type']},
+    type:{ type:String, required:[true,'Pet type is required'], minlength:[3,'At least 3 characters for pet type']},
 
-    description:{ type:String, required:[true,'Pet type is required.'], minlength:[3,'At least 3 characters for pet type']},
+    description:{ type:String, required:[true,'Pet type is required'], minlength:[3,'At least 3 characters for pet type']},
 
     like: {type:Number, default:0},
 
@@ -58,9 +58,9 @@ app.get('/pets', function(req, res){
     })
 })
 
-// Create authors
+// Create 
 app.post('/addpets', function(req, res){
-    console.log("8888",req.body);
+    // console.log("8888",req.body);
     let newPet = new Pet(req.body);
     newPet.save(function(err){
         if(err){
@@ -72,17 +72,17 @@ app.post('/addpets', function(req, res){
 })
 
 
-// //update an author
+// //update
 app.put('/pets/:id', function(req, res){
     console.log(req.body);
     Pet.findOneAndUpdate({_id: req.params.id},
     {$set: {name: req.body.name, type: req.body.type, description: req.body.description, skillone: req.body.skillone, skilltwo: req.body.skilltwo, skillthree: req.body.skillthree}}, function(err){
         if(err){
             console.log('Error during updates');
-            res.json({message:"Error", error:err})
+            res.json({message: "Error", error: err});
         }else{
             console.log('Successfully to update the author');
-            res.json({message: "Success"});
+            res.json("updated pet");
         }
     })
 })
@@ -99,33 +99,6 @@ app.delete('/pets/:id', function(req, res){
     })
 })
 
-// // ===== ROUTES about author ======
-
-// // Retrieve all 
-// app.get('/quotes', function(req, res){
-//     Author.find({}, function(err, results){
-//         if(err){
-//             res.json({message: "Error", error: err})
-//         }else{
-//             // console.log(results);
-//             res.json(results);
-//         }
-//     })
-// })
-
-// // Create
-// app.post('/quotes', function(req, res){
-//     console.log(req.body);
-//     let newQuotes = new Quote(req.body);
-//     newQuotes.save(function(err){
-//         if(err){
-//             res.json({message: "Error", error: err});
-//         }else{
-//             res.json("create success")
-//         }
-//     })
-// })
-
 // // getAuthorById
 app.get('/pet/:id', function(req, res){
     // console.log(req.params.id);
@@ -137,39 +110,6 @@ app.get('/pet/:id', function(req, res){
         }
     })
 })
-
-// // delete a quote
-// app.delete('/quote/:id/:index', function(req, res){
-//     Author.findOne({_id: req.params.id}, function(err,author){
-//         console.log(author);
-//         if(err){
-//             res.json({message:"error", error: err});
-//         }else{
-//             author.quotes.splice(req.params.index, 1);
-//             author.save(function(err) {
-//                 if(err) {
-//                     console.log("after delete quote: ", err);
-//                 }
-//                 else {
-//                     res.json("success delete quote")
-//                 }
-//             })
-//         }
-//     })
-// })
-
-// // create quotes by author id
-// app.put("/write/:id", function(req, res){
-//     console.log("5555 newQuote pass to server.js", req.body.text);
-//     Author.update({_id: req.params.id}, {$push: {quotes: req.body}}, function(err){
-//         if(err){
-//             console.log("err from server.js", err);
-//             res.json({error:err});
-//         }else{
-//             res.json("success create quote");
-//         }
-//     })
-// })
 
 // // vote up
 app.put("/vote/:id", function(req, res){

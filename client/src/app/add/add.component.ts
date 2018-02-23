@@ -34,7 +34,9 @@ export class AddComponent implements OnInit {
           name:"",
           type:"",
           description:"",
-          skills:""
+          skillone:"",
+          skilltwo:"",
+          skillthree:""
         }
         this._router.navigate(["/"]);
       }

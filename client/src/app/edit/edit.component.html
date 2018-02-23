@@ -1,6 +1,8 @@
 <h1>Pet Shelter</h1>
 <h3>Edit this pet</h3> 
 
+<p *ngIf = "error !== null" style="color: red;">{{error}}</p>
+
 <form (submit)="editSubmit()">
   <label for="">Pet name: </label>
   <input type="text" [(ngModel)]="editPet.name" name="petName"><br>
