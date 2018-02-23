@@ -42,13 +42,14 @@ export class ShowComponent implements OnInit {
   }
 
   vote(quoteIndex){
-    this._httpService.voteUp(this.id, (res) => {
-      this._httpService.getPetById(this.id, (res) => {
-        this.thePet = res;
-        console.log(this.thePet);
-      })
-    })
-}
+        this._httpService.voteUp(this.id, (res) => {
+          this._httpService.getPetById(this.id, (res) => {
+            this.thePet = res;
+            document.getElementById("like").disabled = true;
+            console.log(this.thePet);
+          })
+        })
+      }
 
 
 

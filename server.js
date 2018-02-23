@@ -73,19 +73,6 @@ app.post('/addpets', function(req, res){
 
 
 // //update
-// app.put('/pets/:id', function(req, res){
-//     console.log(req.body);
-//     Pet.findOneAndUpdate({_id: req.params.id},
-//     {$set: {name: req.body.name, type: req.body.type, description: req.body.description, skillone: req.body.skillone, skilltwo: req.body.skilltwo, skillthree: req.body.skillthree}}, function(err){
-//         if(err){
-//             console.log('Error during updates');
-//             res.json({message: "Error", error: err});
-//         }else{
-//             console.log('Successfully to update the author');
-//             res.json("updated pet");
-//         }
-//     })
-// })
 
 app.put('/pets/:id', function(req, res){
     console.log(req.body);

@@ -35,24 +35,6 @@ export class EditComponent implements OnInit {
     })
   }
 
-  // editSubmit(){
-  //   this._route.paramMap.subscribe(params => {
-      
-  //     this._httpService.editPet(params.get("id"), this.editPet, (resFromService) => {
-  //       console.log(resFromService);
-  //       if (resFromService.message == "Error") {
-  //         this.error = resFromService.error.message;
-  //       }
-  //       // (resFromService.name == "ValidationError") {
-  //       //   this.error = resFromService.message;
-  //       // }
-  //       else{
-  //         this._router.navigate(["/details/", this.id]);
-  //       }
-        
-  //     }); 
-  //   })
-  // }
   editSubmit(){
     this._route.paramMap.subscribe(params => {
       
