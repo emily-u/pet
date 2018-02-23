@@ -22,6 +22,6 @@
   <input type="text" [(ngModel)]="editPet.skillthree" name="skillthree"><br>
   
   <button>Edit pet</button>
-  <button><a href="/">Cancel</a></button>
+  <a [routerLink]="['/details', id]"><button>Cancel</button></a>
   </form>
   

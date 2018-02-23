@@ -17,6 +17,7 @@ export class AddComponent implements OnInit {
     skillthree:""
   }
   error;
+  id;
 
   constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) { }
 

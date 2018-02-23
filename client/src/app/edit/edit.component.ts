@@ -47,7 +47,7 @@ export class EditComponent implements OnInit {
         //   this.error = resFromService.message;
         // }
         else{
-          this._router.navigate(["/details", this.id]);
+          this._router.navigate(["/details/", this.id]);
         }
         
       }); 
